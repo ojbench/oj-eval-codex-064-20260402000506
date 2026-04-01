@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.16)
+project(problem064_printf LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+add_executable(code src/main.cpp)
+target_include_directories(code PRIVATE ${CMAKE_SOURCE_DIR}/include)
+# Optimize and warnings
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  target_compile_options(code PRIVATE -O2 -pipe -static -s -march=x86-64 -Wall -Wextra -Werror=return-type)
+endif()
